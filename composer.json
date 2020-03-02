@@ -9,11 +9,6 @@
             "email": "lachlanarthur@gmail.com"
         }
     ],
-    "repositories": [{
-        "type": "path",
-        "url": "../social-dev-feed",
-        "symlink": true
-    }],
     "require": {
         "lachlanarthur/social-dev-feed": "@dev"
     },
