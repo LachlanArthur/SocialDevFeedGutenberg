@@ -46,6 +46,8 @@
 					rgba( 0, 0, 0, 0.05 ),
 					rgba( 0, 0, 0, 0.5 ) );
 				color: white;
+				max-height: 100%;
+				overflow: hidden;
 			}
 				.lasdfg-feed-template li a .caption .title {
 					
