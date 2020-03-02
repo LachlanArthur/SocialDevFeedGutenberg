@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "159b0bd66537885d58a4729741054d63",
+    "content-hash": "95b78fea4b3856d040d846f62b64f022",
     "packages": [
         {
             "name": "firebase/php-jwt",
@@ -393,7 +393,7 @@
         },
         {
             "name": "lachlanarthur/social-dev-feed",
-            "version": "dev-master",
+            "version": "0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/LachlanArthur/SocialDevFeed.git",
@@ -1142,9 +1142,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "lachlanarthur/social-dev-feed": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
