@@ -1,0 +1,3 @@
+- Create PSR-16 conformant interface using WordPress Transients
+- Add input for item limit
+- Display feed output in editor with auto-refresh
