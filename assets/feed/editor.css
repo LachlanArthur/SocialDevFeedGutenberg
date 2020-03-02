@@ -34,20 +34,23 @@
 			align-self: flex-start;
 			font-size: 12px;
 		}
-			.wp-block-lasdfg-feed .components-placeholder__fieldset .platform-item .platform-name svg,
-			.wp-block-lasdfg-feed .components-placeholder__fieldset .platform-item .platform-name img {
-				vertical-align: top;
-				width: 1.5em;
-				height: 1.5em;
-				display: inline-block;
-				position: relative;
-				top: 0.25em;
-				margin-right: 0.25em;
-			}
 		.wp-block-lasdfg-feed .components-placeholder__fieldset .platform-item button {
 			grid-area: button;
 			align-self: center;
 		}
 	.wp-block-lasdfg-feed .components-placeholder__fieldset .components-dropdown-menu {
 		align-self: center;
+	}
+.lasdfg-platform-icon {
+	display: inline;
+}
+	.lasdfg-platform-icon svg,
+	.lasdfg-platform-icon img {
+		vertical-align: top;
+		width: 1.5em;
+		height: 1.5em;
+		display: inline-block;
+		position: relative;
+		top: 0.25em;
+		margin-right: 0.25em;
 	}

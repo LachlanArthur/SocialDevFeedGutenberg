@@ -34,17 +34,11 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
             });
         });
     }
-    const PlatformIcon = ({ icon }) => {
-        if (/^https?:\/\//.test(icon)) {
-            return el("img", { src: icon });
-        }
-        else if (typeof icon === 'string') {
-            return el(Icon, { icon: icon });
-        }
-        return null;
-    };
+    const PlatformIcon = ({ icon }) => (el("div", { className: "lasdfg-platform-icon" }, /^https?:\/\//.test(icon)
+        ? el("img", { src: icon })
+        : el(Icon, { icon: icon })));
     const PlatformPopover = ({ onClick }) => {
-        return el(DropdownMenu, { label: __('Add Platform', 'lasdfg'), icon: "plus" }, () => el(Fragment, null, (platforms.map((platform) => (el(MenuItem, { icon: platform.icon ? el(PlatformIcon, { icon: platform.icon }) : undefined, onClick: () => onClick(platform) }, platform.title))))));
+        return el(DropdownMenu, { label: __('Add Platform', 'lasdfg'), icon: "plus" }, ({ onClose }) => el(Fragment, null, (platforms.map((platform) => (el(MenuItem, { key: platform.name, icon: platform.icon ? el(PlatformIcon, { icon: platform.icon }) : undefined, onClick: () => { onClose(); onClick(platform); } }, platform.title))))));
     };
     const blockConfig = {
         title: __('Social Feed', 'lasdfg'),

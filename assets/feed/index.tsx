@@ -69,14 +69,14 @@ type PlatformItem = {
 		} );
 	}
 
-	const PlatformIcon: FunctionComponent<{ icon: string }> = ( { icon } ) => {
-		if ( /^https?:\/\//.test( icon ) ) {
-			return <img src={icon} />;
-		} else if ( typeof icon === 'string' ) {
-			return <Icon icon={icon as Dashicon.Icon} />
-		}
-		return null;
-	}
+	const PlatformIcon: FunctionComponent<{ icon: string }> = ( { icon } ) => (
+		<div className="lasdfg-platform-icon">
+			{/^https?:\/\//.test( icon )
+				? <img src={icon} />
+				: <Icon icon={icon as Dashicon.Icon} />
+			}
+		</div>
+	);
 
 	type AddPlatformPopoverState = {
 		onClick: ( platform: PlatformType ) => void,
@@ -87,11 +87,12 @@ type PlatformItem = {
 			label={__( 'Add Platform', 'lasdfg' )}
 			icon="plus"
 		>
-			{() => <Fragment>{(
+			{({onClose}) => <Fragment>{(
 				platforms.map( ( platform: PlatformType ) => (
 					<MenuItem
+						key={platform.name}
 						icon={platform.icon ? <PlatformIcon icon={platform.icon} /> : undefined}
-						onClick={() => onClick( platform )}
+						onClick={() => { onClose(); onClick( platform ) }}
 					>
 						{platform.title}
 					</MenuItem> ) )
