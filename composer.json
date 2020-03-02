@@ -1,0 +1,25 @@
+{
+    "name": "lachlanarthur/social-dev-feed-gutenberg",
+    "description": "Social media feeds in Gutenberg.",
+    "type": "wordpress-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Lachlan Arthur",
+            "email": "lachlanarthur@gmail.com"
+        }
+    ],
+    "repositories": [{
+        "type": "path",
+        "url": "../social-dev-feed",
+        "symlink": true
+    }],
+    "require": {
+        "lachlanarthur/social-dev-feed": "@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "LachlanArthur\\SocialDevFeedGutenberg\\": "src"
+        }
+    }
+}
