@@ -2,7 +2,7 @@
 /**
  * Plugin Name:  Social Dev Feed Gutenberg
  * Description:  Social media feeds in Gutenberg.
- * Version:      1.0.0
+ * Version:      0.2
  * Author:       Lachlan Arthur
  * Author URI:   https://lach.la/
  * License:      MIT
