@@ -10,7 +10,8 @@
         }
     ],
     "require": {
-        "lachlanarthur/social-dev-feed": "^0.1.0"
+        "lachlanarthur/social-dev-feed": "0.2.2",
+        "lachlanarthur/psr16-wordpress-transients": "^1.1"
     },
     "autoload": {
         "psr-4": {

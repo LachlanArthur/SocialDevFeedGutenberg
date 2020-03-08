@@ -5,6 +5,7 @@ namespace LachlanArthur\SocialDevFeedGutenberg\Blocks;
 use LachlanArthur\SocialDevFeed;
 use LachlanArthur\SocialDevFeed\Meta;
 use LachlanArthur\SocialDevFeed\Platforms;
+use LachlanArthur\Psr16WordPressTransients\WordPressTransientAdapter;
 
 class Feed extends AbstractBlock {
 
@@ -41,7 +42,7 @@ class Feed extends AbstractBlock {
 					'type' => 'number',
 					'default' => 12,
 				],
-		
+
 			],
 
 		];
@@ -93,6 +94,7 @@ class Feed extends AbstractBlock {
 	public function registerDefaultPlatforms() {
 
 		$this->registerPlatform( Platforms\Instagram::class );
+		$this->registerPlatform( Platforms\WordPressRest::class );
 
 		if ( Platforms\YouTube::hasApiKey() ) {
 			$this->registerPlatform( Platforms\YouTube::class );
@@ -100,9 +102,18 @@ class Feed extends AbstractBlock {
 
 	}
 
+	protected function getFeedInstance() {
+
+		return new SocialDevFeed\Feed(
+			new WordPressTransientAdapter( 'lasdfg-entries-', DAY_IN_SECONDS ),
+			new WordPressTransientAdapter( 'lasdfg-meta-', MONTH_IN_SECONDS )
+		);
+
+	}
+
 	public function getFeed( $items ) {
 
-		$feed = new SocialDevFeed\Feed();
+		$feed = $this->getFeedInstance();
 
 		foreach ( $items as $item ) {
 
@@ -160,7 +171,7 @@ class Feed extends AbstractBlock {
 		if ( empty( $platformClass ) ) wp_send_json_error( __( 'Unknown platform', 'lasdfg' ) );
 		if ( empty( $platformId ) )    wp_send_json_error( sprintf( _x( '%s required', '<ID field label> required', 'lasdfg' ), $platformClass::getIdLabel() ) );
 
-		$feed = new \LachlanArthur\SocialDevFeed\Feed();
+		$feed = $this->getFeedInstance();
 
 		/** @var Meta */
 		$meta = $feed->getCachedMeta( new $platformClass( $platformId ) );

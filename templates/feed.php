@@ -3,7 +3,9 @@
 	<?php foreach ( $entries as $entry ) { ?>
 		<li>
 			<a href="<?= $entry->url ?>" target="_blank">
-				<img src="<?= $entry->getThumbnail()->url ?>">
+				<?php if ( $entry->hasThumbnail() ) { ?>
+					<img src="<?= $entry->getThumbnail()->url ?>">
+				<?php } ?>
 				<div class="caption">
 					<div class="title"><?= $entry->title ?></div>
 					<div class="date"><?= $entry->datetime->format( 'jS M Y g:i a' ) ?></div>
